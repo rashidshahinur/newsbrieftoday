@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const CAT_COLORS: Record<string, string> = {
   bangladesh: '#15803d', world: '#1d4ed8', politics: '#7e22ce',
-  tech: '#0e7490', business: '#1e293b', health: '#047857', culture: '#b45309',
+  tech: '#0e7490', business: '#1e293b', health: '#047857', culture: '#b45309',entertainment: '#be185d',
 };
 
 export default async function ArticlePage({ params }: Props) {

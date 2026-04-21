@@ -16,6 +16,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   business: '#1e293b',
   health: '#047857',
   culture: '#b45309',
+  entertainment: '#be185d',
 };
 
 function formatShort(d: string) {

@@ -169,6 +169,27 @@ The festival hosted panel discussions on OTT platform opportunities, funding mec
     featured: false,
     readTime: 3,
   },
+   {
+    id: '9',
+    slug: 'entertainment-streaming-wars-2025',
+    title: 'Streaming Wars Intensify as Platforms Battle for South Asian Audiences',
+    summary: 'Netflix, Disney+ and local streaming platforms are investing heavily in Bangladeshi and South Asian original content as the region emerges as a key growth market.',
+    content: `The global streaming industry is turning its attention to South Asia, with major platforms committing hundreds of millions of dollars to original content production targeting Bangladeshi, Indian, and Pakistani audiences.
+
+Netflix announced a $200 million South Asia content fund, with a significant portion earmarked for Bangladeshi productions. The platform has seen a 340% increase in subscribers from Bangladesh over the past two years, driven by affordable mobile plans and growing smartphone penetration.
+
+Disney+ Hotstar, already dominant in India, is expanding aggressively into Bangladesh with localized pricing and Bangla-language originals. Three Bangladeshi drama series are currently in production under the platform's new regional content initiative.
+
+Local platforms are fighting back. Binge, Bangladesh's homegrown streaming service, has signed exclusive deals with top Bangladeshi directors and actors, betting that local authenticity will win against global budgets.
+
+Industry analysts note that the battle for South Asian streaming audiences is fundamentally different from Western markets. Mobile-first viewing, price sensitivity, and strong preference for local language content shape the competitive dynamics in ways that challenge global platform assumptions.`,
+    category: 'entertainment',
+    imageUrl: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=800&q=80',
+    publishDate: '2025-04-21',
+    author: 'Entertainment Desk',
+    featured: false,
+    readTime: 3,
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {

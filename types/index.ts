@@ -27,4 +27,5 @@ export const CATEGORIES: Category[] = [
   { name: 'Business', slug: 'business', description: 'Business, economy and finance' },
   { name: 'Health', slug: 'health', description: 'Health, science and medicine' },
   { name: 'Culture', slug: 'culture', description: 'Arts, culture and lifestyle' },
+  { name: 'Entertainment', slug: 'entertainment', description: 'Entertainment, celebrities and pop culture' },
 ];

@@ -26,7 +26,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: { default: 'Daily Brief Today', template: '%s | Daily Brief Today' },
-  description: 'Your daily micro-news briefing. Clear. Concise. Essential.',
+  description: 'দৈনিক সংক্ষিপ্ত সংবাদ। Clear. Concise. Essential.',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,78 +1,93 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
-import { CATEGORIES } from '@/types';
+
+const navItems = [
+  { label: 'বাংলাদেশ', href: '/category/bangladesh' },
+  { label: 'আন্তর্জাতিক', href: '/category/world' },
+  { label: 'ব্যবসা', href: '/category/business' },
+  { label: 'প্রযুক্তি', href: '/category/tech' },
+  { label: 'স্বাস্থ্য', href: '/category/health' },
+  { label: 'সংস্কৃতি', href: '/category/culture' },
+  { label: 'বিনোদন', href: '/category/entertainment' },
+];
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const today = new Date().toLocaleDateString('en-US', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+  const today = new Date().toLocaleDateString('bn-BD', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-      <div style={{ backgroundColor: '#0F172A' }} className="text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-8 text-xs">
-            <span className="text-gray-400">{today}</span>
-            <Link href="#newsletter" style={{ color: '#C41E3A' }} className="font-medium hover:opacity-80">
-              Subscribe →
-            </Link>
-          </div>
-        </div>
+    <header style={{ borderBottom: '1px solid #e0dbd3' }}>
+      {/* Top strip */}
+      <div style={{
+        background: '#1a1a1a',
+        color: '#999',
+        fontSize: '11px',
+        padding: '5px 32px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}>
+        <span>{today}</span>
+        <span style={{ letterSpacing: '1px' }}>DAILY BRIEF TODAY</span>
+        <span>dailybrieftoday.com</span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link href="/" className="flex flex-col leading-none group">
-            <span className="font-display font-black text-xl sm:text-2xl tracking-tight"
-              style={{ color: '#0F172A' }}>
-              Daily Brief
-            </span>
-            <span className="text-xs font-bold tracking-widest uppercase"
-              style={{ color: '#C41E3A', fontFamily: 'var(--font-inter)' }}>
-              Today
-            </span>
+      {/* Masthead */}
+      <div style={{ textAlign: 'center', padding: '28px 16px 20px', borderBottom: '3px solid #1a1a1a' }}>
+        <Link href="/" style={{ textDecoration: 'none' }}>
+          <h1
+            className="masthead"
+            style={{
+              fontSize: 'clamp(36px, 6vw, 64px)',
+              fontWeight: 700,
+              letterSpacing: '-1px',
+              lineHeight: 1,
+              color: '#1a1a1a',
+            }}
+          >
+            Daily Brief Today
+          </h1>
+        </Link>
+        <p style={{
+          fontFamily: "'Hind Siliguri', sans-serif",
+          fontSize: '12px',
+          color: '#6b6b6b',
+          marginTop: '8px',
+          letterSpacing: '2px',
+          textTransform: 'uppercase',
+        }}>
+          দৈনিক সংক্ষিপ্ত · আজকের গুরুত্বপূর্ণ সংবাদ
+        </p>
+      </div>
+
+      {/* Nav */}
+      <nav style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '32px',
+        padding: '10px 32px',
+        flexWrap: 'wrap',
+        borderBottom: '1px solid #e0dbd3',
+      }}>
+        {navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            style={{
+              fontSize: '12px',
+              color: '#1a1a1a',
+              letterSpacing: '0.5px',
+              fontWeight: 500,
+              textDecoration: 'none',
+            }}
+          >
+            {item.label}
           </Link>
-
-          <nav className="hidden md:flex items-center gap-1">
-            {CATEGORIES.map((cat) => (
-              <Link key={cat.slug} href={`/${cat.slug}`}
-                className="px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-red-700 hover:bg-red-50 rounded transition-colors"
-                style={{ fontFamily: 'var(--font-inter)' }}>
-                {cat.name}
-              </Link>
-            ))}
-          </nav>
-
-          <button onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded text-gray-700 hover:bg-gray-100"
-            aria-label="Toggle menu">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {menuOpen
-                ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              }
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {menuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
-          <nav className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 gap-1">
-            {CATEGORIES.map((cat) => (
-              <Link key={cat.slug} href={`/${cat.slug}`}
-                onClick={() => setMenuOpen(false)}
-                className="px-3 py-2.5 text-sm font-medium text-gray-700 hover:text-red-700 hover:bg-red-50 rounded transition-colors">
-                {cat.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+        ))}
+      </nav>
     </header>
   );
 }
